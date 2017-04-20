@@ -1,0 +1,41 @@
+<!doctype html>
+<html class="no-js">
+
+<head>
+  <title>Query Twitter</title>
+  <base href="/">
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="app/app.css" />
+  <link rel="stylesheet" href="app/components/component.css" />
+  <link rel="stylesheet" href="app/query/query.css" />
+  <link rel="stylesheet" href="app/user/user.css" />
+</head>
+
+<body ng-app="queryApp">
+  <div ng-view=""></div>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJRg24Cc1L5rjghbl7wgkz-6yNkpq-uYs&language=en-gb&libraries=places"></script>
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="bower_components/angular-ui-bootstrap/ui-bootstrap.min.js"></script>
+  <script src="bower_components/angular-ui-bootstrap/ui-bootstrap-tpls.min.js"></script>
+  <script src="socket.io/socket.io.js"></script>
+  <script src="app/app.js"></script>
+  <script src="app/components/component.controller.js"></script>
+  <script src="app/services/socket.service.js"></script>
+  <script src="app/services/tweet.service.js"></script>
+  <script src="app/query/query.controller.js"></script>
+  <script src="app/user/user.controller.js"></script>
+</body>
+
+</html>

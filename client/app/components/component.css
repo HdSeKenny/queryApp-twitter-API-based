@@ -1,0 +1,62 @@
+.navbar-inverse {
+  padding-top: 5px;
+  height: 65px;
+  background: #333;
+}
+
+.twitter-nav {
+  margin-left: 80px;
+  margin-right: 80px;
+}
+
+#navbar-brand {
+  margin-top: 2px;
+  font-size: 22px;
+  color: #55acee;
+  font-family: 'Signika', sans-serif;
+  font-weight: bolder;
+}
+
+#twitter-icon {
+  color: #55acee;
+}
+
+#left-nav {
+  margin-left: 25px;
+  margin-top: 1px;
+  font-size: 16px;
+}
+
+.navbar-right {
+  margin-top: 1px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+#login-btn {
+  color: #F5F5F5;
+  border-color: #F5F5F5;
+  background: #333;
+  margin-top: 10px;
+}
+
+#signup-btn {
+  color: #F5F5F5;
+  border-color: #F5F5F5;
+  background: #333;
+  margin-top: 10px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  background-color: #f5f5f5;
+}
+
+.container .text-muted {
+  margin-top: 10px;
+  text-align: center;
+  font-family: "Great Vibes", cursive;
+}

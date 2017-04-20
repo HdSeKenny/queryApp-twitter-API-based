@@ -1,0 +1,142 @@
+<div ng-include="'app/components/navbar.html'"></div>
+
+<!-- query page with search box and filter input -->
+<div class="queryPage">
+  <div class="row">
+    <div class="col-xs-6">
+      <div class="input-group" id="adv-search">
+        <!-- Main search box -->
+        <form class="search-box" ng-submit="searchTwitter()">
+          <span class="quick-search-icon"><i class="fa fa-search"></i></span>
+          <input type="text" ng-model="content" id="quick-search" placeholder="search content.." />
+        </form>
+        <div class="input-group-btn">
+          <div class="btn-group" role="group">
+            <div class="dropdown dropdown-lg">
+              <button type="button" id="caret-btn" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
+              <div class="dropdown-menu dropdown-menu-right" role="menu">
+                <form class="form-horizontal" ng-submit="searchTwitter()" role="form">
+                  <div class="form-group">
+                    <label for="filter">Filter by</label>
+                    <select ng-model="filterBy" class="form-control">
+                      <option>AND</option>
+                      <option>OR</option>
+                    </select>
+                  </div>
+                  <div class="form-group" id="author-form-group">
+                    <label for="contain">Author ( screen_names )</label>
+                    <div class="row">
+                      <div class="col-xs-1">
+                        <button type="button" id="a-btn" class="btn btn-default">@</button>
+                      </div>
+                      <div class="col-xs-11">
+                        <input ng-model="author" id="author-input" class="form-control" type="text" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-xs-8">
+                        <label for="contain">Location</label>
+                        <input ng-model="address" class="form-control" type="text" placeholder="address" />
+                      </div>
+                      <div class="col-xs-4">
+                        <label for="contain">Radius</label>
+                        <input ng-model="radius" style="border-radius: 5px;" class="form-control" type="text" placeholder="mi/km" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-xs-6">
+                        <label for="contain">Frequent words NO</label>
+                        <input ng-model="keywords" style="border-radius: 5px;" class="form-control" type="text" placeholder="number.." />
+                      </div>
+                      <div class="col-xs-6">
+                        <label for="contain">Days NO </label>
+                        <input ng-model="days" style="border-radius: 5px;" class="form-control" type="text" placeholder="<= 7 days" />
+                      </div>
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Submit</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End query page -->
+
+<!-- Frequent words section section -->
+<div class="tweets-section">
+  <section class="twitter-countword" ng-show="tweet.length != 0">
+    <div class="search-result">
+      <div class="row">
+        <div class="col-xs-4">
+          <button id="map-btn" ng-click="initMap()" class="btn btn-primary">Show Google Map</button>
+        </div>
+        <div class="col-xs-4" ng-show="content != null">
+          <h2 class="query-h2">Query : <span class="span">{{content}} <span ng-show="author != null">Author: {{author}}</span></span></h2>
+        </div>
+        <div class="col-xs-4">
+          <h2 class="query-h2" ng-show="tweets.length != 0">Count : <span class="span">{{tweets.length}}</span></h2>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div id="map" ng-show="isInitMap()"></div>
+  <!-- count frequent words section -->
+  <section class="twitter-countword" ng-show="authorTextArr.length != 0">
+    <div class="row">
+      <div class="col-xs-2" id="countword-h2">
+        <div class="" ng-repeat="word in frequentWords">
+          <h2 class="countword-h2">{{word}}</h2>
+        </div>
+      </div>
+      <div class="col-xs-2" ng-repeat="author in authorTextArr">
+        <h4 class="screen-name-h4">@{{author.userName}}</h4>
+        <div class="row" ng-repeat="wordCount in author.words">
+          <h4 class="count-h4">{{wordCount.count}}</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End frequent words section -->
+
+<article class="twitter-tweet-sections">
+    <!-- Tweets section -->
+  <section class="twitter-tweet" ng-repeat="tweet in tweets">
+    <div class="row">
+      <div class="col-xs-2">
+        <img class="twitter-img" ng-src="{{tweet.profile_image_url}}">
+      </div>
+      <div class="col-xs-7">
+        <h3 class="tweet-username"><a href="https://twitter.com/{{tweet.screen_name}}">{{tweet.name}} <span style="color:gray; font-size: 15px;">(@{{tweet.screen_name}})</span></a> <p id="tweet-date">{{tweet.created_at}}</p>
+        </h3>
+      </div>
+      <div class="col-xs-3">
+        <a href="/query/{{tweet.user_id}}">
+          <button id="user-page-btn" class="btn btn-default"><i class="fa fa-twitter"></i> User Page</button>
+        </a>
+      </div>
+    </div>
+    <div class="row">
+      <p id="tweet-text"><a href="https://twitter.com/{{tweet.screen_name}}/status/{{tweet.id_str}}">{{tweet.tweet_text}}</a></p>
+    </div>
+    <div class="original">
+      <span class="ori-author">Original author : </span>
+      <span id="ori-author"><a href="https://twitter.com/{{tweet.retweeted_status.user.screen_name}}">{{tweet.retweeted_status.user.screen_name}}</a></span>
+    </div>
+  </section>
+  <!-- End tweets section -->
+</article>
+
+
+<!-- <div class="pagination">
+    <pagination ng-model="currentPage" total-items="tweets.length" max-size="maxSize" boundary-links="true">
+    </pagination>
+  </div> -->
+</div>

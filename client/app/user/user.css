@@ -1,0 +1,155 @@
+/* main html */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-top: 50px;
+  margin-bottom: 60px;
+  background: #E8E8E8;
+}
+
+.container {
+  padding: 0 15px;
+}
+
+.hero-unit {
+  position: relative;
+  padding: 30px 15px;
+  color: #F5F5F5;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  /*background: #4393B9;*/
+  background: #333;
+  margin-bottom: 20px;
+}
+
+#start {
+  margin-top: 30px;
+}
+
+#home-text {
+  font-family: 'Verdana', sans-serif;
+  line-height: 26px;
+  text-indent: 30px;
+  margin: 0;
+  font-size: 25px;
+}
+
+#title-span {
+  color: #ff4411;
+  font-size: 55px;
+  font-family: 'Signika', sans-serif;
+  line-height: 160px;
+  font-weight: 600;
+  margin-bottom: 0px;
+  text-align: center;
+  text-shadow: 0 1px 1px #fff;
+}
+
+
+/* query html */
+.twitter-page {
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.twitter-page-section {
+  margin-left: 88px;
+}
+
+.well {
+  margin-top: -20px;
+  background-color: #007FBD;
+  border: 2px solid #0077B2;
+  text-align: center;
+  cursor: pointer;
+  font-size: 25px;
+  padding: 15px;
+  border-radius: 0px !important;
+}
+
+.well:hover {
+  margin-top: -20px;
+  background-color: #0077B2;
+  border: 2px solid #0077B2;
+  text-align: center;
+  cursor: pointer;
+  font-size: 25px;
+  padding: 15px;
+  border-radius: 0px !important;
+  border-bottom: 2px solid rgba(97, 203, 255, 0.65);
+}
+
+.bg_blur {
+  background-image: url('../../assets/images/twitter_bg.jpg');
+  height: 250px;
+  width: 320px;
+  background-size: cover;
+}
+
+.header {
+  color: #808080;
+  margin-left: 11%;
+  margin-top: 75px;
+}
+
+.picture {
+  height: 150px;
+  width: 150px;
+  position: absolute;
+  top: 75px;
+  left: -75px;
+}
+
+.picture_mob {
+  position: absolute;
+  width: 35%;
+  left: 35%;
+  bottom: 70%;
+}
+
+.btn-style {
+  color: #fff;
+  background-color: #007FBE;
+  border-color: #adadad;
+  width: 33.3%;
+}
+
+.btn-style:hover {
+  color: #333;
+  background-color: #3D5DE0;
+  border-color: #adadad;
+  width: 33.3%;
+}
+
+@media (max-width: 767px) {
+  .header {
+    text-align: center;
+  }
+}
+
+.twitter-h1 {
+  color: #55acee;
+}
+
+.des-span {
+  color: #F90B6D;
+}
+
+#statuses-count-btn {
+  color: #55acee;
+  border-color: #55acee;
+  margin-top: -10px;
+  margin-left: 20px;
+}
+
+#col-md-8 {
+  margin-top: -20px;
+}
+
+.twitter-h4 {
+  margin-top: 30px;
+}
+

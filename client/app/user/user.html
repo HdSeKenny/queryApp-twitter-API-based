@@ -1,0 +1,43 @@
+<div ng-include="'app/components/navbar.html'"></div>
+<div class="twitter-page">
+  <div class="row panel">
+    <div class="col-md-4 bg_blur ">
+    </div>
+    <div class="col-md-8  col-xs-12" id="col-md-8">
+      <img ng-src="{{user.profile_image_url}}" class="img-thumbnail picture hidden-xs" />
+      <div class="header">
+        <h1 class="twitter-h1">{{user.name}}
+          <span class="statuses-count-btn"><button id="statuses-count-btn" class="btn btn-default btn-sm">{{user.statuses_count}}</button></span></h1>
+        <h5 class="twitter-h5"><span class="des-span">Screen name : </span> @ {{user.screen_name}}</h5>
+        <h5><span class="des-span">Description : </span>{{user.description}}</h5>
+        <h5><span class="des-span">Location : </span>{{user.location}}</h5>
+        <h5 style="margin-bottom: -20px;">
+          <p ><span class="des-span">10 words most common : </span><span ng-repeat="word in commonlyWords" style="color: #55acee">{{word.word}}  </span></p></h5>
+        <h4 class="twitter-h4">Recent tweets count: <span class="des-span">{{tweets.length}}</span></h4>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="twitter-page-section">
+    <section class="twitter-countword" ng-repeat="location in locations">
+      {{location}}
+    </section>
+  <section class="twitter-tweet" ng-repeat="tweet in tweets">
+    <div class="row">
+      <div class="col-xs-2">
+        <img class="twitter-img" ng-src="{{tweet.profile_image_url}}">
+      </div>
+      <div class="col-xs-7">
+        <h3 class="tweet-username"><a href="https://twitter.com/{{tweet.screen_name}}">{{tweet.name}} <span style="color:gray; font-size: 15px;">(@{{tweet.screen_name}})</span></a> <p id="tweet-date">{{tweet.created_at}}</p>
+        </h3>
+      </div>
+    </div>
+    <div class="row">
+      <p id="tweet-text"><a href="https://twitter.com/{{tweet.screen_name}}/status/{{tweet.tweet_id}}">{{tweet.tweet_text}}</a></p>
+    </div>
+    <div class="original">
+      <span class="ori-author">Original author : </span>
+      <span id="ori-author"><a href="https://twitter.com/{{tweet.retweeted_status.user.screen_name}}">{{tweet.retweeted_status.user.screen_name}}</a></span>
+    </div>
+  </section>
+</div>
